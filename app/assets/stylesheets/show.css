@@ -1,0 +1,77 @@
+/* unvisited link */
+a:link {
+    color: #008080;
+}
+
+/* visited link */
+a:visited {
+    color: #004080;
+}
+
+/* mouse over link */
+a:hover {
+    color: #66CCFF;
+}
+
+/* selected link */
+a:active {
+    color: #008040;
+}
+
+.showlogo {
+	width: 200px;
+}
+
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+  padding:20px;	
+}
+
+.card-gym {
+  border-radius: 30px;
+  background-color: #CCCCCC;
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+  box-shadow: 0 1px 0px rgba(0,0,0,0.2);
+  position:relative;
+}
+
+.card-inside-text {
+	display: inline-block;
+	position: relative;
+}
+
+.card-review {
+  border-radius: 30px;
+  background-color: #66CCFF;
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+  box-shadow: 0 1px 0px rgba(0,0,0,0.2);
+  position:relative;
+}
+
+.card-comment {
+  border-radius: 30px;
+  background-color: #999999;
+  padding: 20px;
+  margin: 10px;
+  margin-right: 20px;
+  width: 98%;
+  box-shadow: 0 1px 0px rgba(0,0,0,0.2);
+}
+
+.linkbutton {
+	color: white;
+}
+
+.linkbutton:active {
+	color: white;
+}
+
+.gymreview {
+	color: white;
+	font-size: 14px
+}

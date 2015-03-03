@@ -1,0 +1,84 @@
+* {
+margin: 0;
+}
+
+html, body {
+height: 100%;
+}
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#FF8000;
+   color: #ffffff;
+   text-align: right;
+   padding: 20px
+}
+
+.mybutton {
+	text-format: none;
+  color: white
+}
+
+.headerbig {
+	font-size: 70pt
+}
+
+video#bgvid {
+position: fixed; right: 0; bottom: 0;
+min-width: 100%; min-height: 100%;
+width: auto; height: auto; z-index: -100;
+background: image-url("weights.jpg") no-repeat;
+background-size: cover;
+opacity: 0.4;
+}
+
+.jumbomain {
+	border-radius: 30px;
+	padding: 30px;
+ 	margin-bottom: 30px;
+ 	background-color: transparent;
+    margin-bottom: 0px;
+    background-image: image-url("weights.jpg");
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+}
+
+.jumbotext {
+	font-size: 40px;
+ 	font-weight: 200;
+ 	line-height: 2.1428571435;
+	color: white;
+}
+
+.logomap {
+  width: 100px
+}
+
+.fullback1 {
+  background: url(<%= asset_path "gym.jpg"%>);
+  background-size: cover;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.noopacity {
+  opacity: 1.0;
+  z-index: 1;
+  background: #CCCCCC;
+  opacity: 0.9;
+}
+
+.logonavbar {
+  display: inline-block;
+  width: 20%;
+
+}
+
+.mainlogo {
+  width: 50%
+}

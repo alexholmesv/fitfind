@@ -1,0 +1,58 @@
+<%= tinymce :alternate %>
+
+<%= simple_form_for(@gym) do |f| %>
+<%= f.error_notification %>
+
+<form>
+  <div class="form-group col-md-9 ">
+    <div class="field form-group formtitle">
+        <div>
+          <%= f.label "Nombre del Gimnasio" %><br>
+          <%= f.input :name %>
+        </div>
+        <div>
+          <%= f.label "Descripción" %><br>
+          <%= f.input :description, class:"tinymce"%>
+        </div>
+        <div>
+          <%= f.label "Latitud" %><br>
+          <%= f.input :latitude %>
+        </div>
+        <div>
+          <%= f.label "Longitud" %><br>
+          <%= f.input :longitude %>
+        </div>
+        <div>
+          <%= f.label "Dirección" %><br>
+          <%= f.input :address %>
+        </div>
+        <div>
+          <%= f.label "Comuna" %><br>
+          <%= f.input :comuna %>
+        </div>
+        <div>
+          <%= f.label "Teléfono" %><br>
+          <%= f.input :phone %>
+        </div>
+        <div>
+          <%= f.label "Email" %><br>
+          <%= f.input :email %>
+        </div>
+        <div>
+          <%= f.label "Sitio Web" %><br>
+          <%= f.input :website %>
+        </div>
+        <%= f.label "Logo" %><br>
+        <p>Sube el logo con el botón</p>
+        <%= f.file_field :logo %>
+        <br>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+      <% end %>
+      </div>
+    </form>
+
+    <%= tinymce %>

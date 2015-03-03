@@ -1,0 +1,58 @@
+
+
+<div class="container">
+  <div class="card-gym">
+    <div>
+      <%= image_tag @gym.logo, class:"showlogo" %>
+    </div>
+    <h1>
+      <%= @gym.name %>
+    </h1>
+
+    <p>
+      <strong>Dirección:</strong>
+      <%= @gym.address %><br>
+      <strong>Teléfono:</strong>
+      <%= @gym.phone %><br>
+      <strong>Email:</strong>
+      <%= @gym.email %><br>
+      <strong>Sitio Web:</strong>
+      <%= link_to @gym.website, @gym.website %>
+    </p>
+
+    <div class="card-inside-text">
+      <h4>
+        <%= @gym.description %>
+      </h4>
+    </div>
+  </div>
+
+
+  <div class="card-review">
+    <h2>Qué dicen los usuarios acerca de este gimnasio</h2>
+      <% @gym.reviews.each do |review| %>
+      <div class="card-comment">
+        <%= image_tag review.user.image, size: '50' %>
+        <p><strong><%= review.user.name %></strong></p>
+        <p class="gymreview"><%= review.description %></p>
+        <p><%= time_ago_in_words(review.created_at) %></p>
+      </div>
+    <% end %>
+
+    <%= form_for([@gym, @review]) do |f| %>
+    <div class="field">
+      <%= f.text_area :description, class:"form-control", placeholder:"Deja un comentario acerca de este gimnasio" %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit "Deja tu comentario", class:"btn btn-warning" %>
+    </div>
+    <% end %>
+
+
+  </div>
+
+  <%= link_to 'Edit', edit_gym_path(@gym) %> |
+  <%= link_to 'Back', gyms_path %>
+
+</div>

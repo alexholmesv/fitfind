@@ -1,0 +1,29 @@
+<div class="site-wrapper">
+
+  <div class="site-wrapper-inner-text">
+    <video autoplay mute loop id="bgvid">
+      <source src= <%= asset_path "videos/fitness.mp4"%> type="video/mp4">
+      </video>
+      <div class="cover-container">
+
+        <div class="inner cover">
+         <%= image_tag 'Fitfind-Logo.png', class:"mainlogo"%>"
+         <p class="lead">FitFind te ayuda a encontrar todos los servicios relacionados con fitness y vida sana dentro de tu ciudad.</p>
+         <p class="lead">
+          <a><%= link_to "Llévame al Mapa", gyms_path, class: "btn btn-warning "%></a>
+        </p>
+      </div>
+      <br>
+
+
+      <div class="mastfoot">
+        <div class="inner">
+          <p>Copyright ©2015</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

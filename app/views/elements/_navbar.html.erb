@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default inverse" style="height:50px" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <a class="navbar-brand" rel="home" href="<%= root_path %>" title="">
+      <img style="max-width:50px; margin-top: -15px;"
+      src="<%= asset_path 'Fitfind-Logo.png' %>">
+    </a>
+    <a><%= link_to "Mapa", gyms_path, class: "navbar-brand" %></a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <% if defined?(Devise) %>
+      <% if user_signed_in? %>
+      <li><%= image_tag current_user.image %></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "Editar Perfil", edit_user_registration_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </li>
+      <% else %>
+      <li><%= link_to "Iniciar Sesión", new_user_session_path %></li>
+      <li><%= link_to "Registrarse", new_user_registration_path %></li>
+      <% end %>
+      <% end %>
+    </ul>
+</nav>
