@@ -1,8 +1,8 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
-set :application, 'nombre_app'
+set :application, 'fitfind'
 set :scm, :git
-set :repo_url, 'cuenta bitbucket'
+set :repo_url, 'alexholmesv/fitfind'
 set :branch, "capistrano"
 set :deploy_via, :copy
 set :user, 'deploy'

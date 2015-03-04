@@ -1,53 +1,48 @@
 
+<%= tinymce_assets %>
 
 <%= simple_form_for(@gym) do |f| %>
 <%= f.error_notification %>
 
-<%= tinymce_assets %>
-
 <form>
-  <div class="form-group col-md-9 ">
-    <div class="field form-group formtitle">
+  <div class="form-group col-md-6">
+     <div class="field form-group formtitle">
         <div>
-          <%= f.label "Nombre del Gimnasio" %><br>
-          <%= f.input :name %>
+          <%= f.input :name, label:"Nombre del lugar, tienda o servicio" %>
         </div>
         <div>
-          <%= f.label "Descripción" %><br>
-          <%= f.input :description, class:"tinymce"%>
+          <%= f.input :description, label:"Descripción del lugar y servicios disponibles", as: 'text', input_html: { class:'tinymce' }%>
         </div>
         <div>
-          <%= f.label "Latitud" %><br>
-          <%= f.input :latitude %>
+          <%= f.input :latitude, label:"Latitud" %>
         </div>
         <div>
-          <%= f.label "Longitud" %><br>
-          <%= f.input :longitude %>
+          <%= f.input :longitude, label:"Longitud" %>
         </div>
         <div>
-          <%= f.label "Dirección" %><br>
-          <%= f.input :address %>
+          <%= f.input :address, label:"Dirección" %>
         </div>
         <div>
-          <%= f.label "Comuna" %><br>
-          <%= f.input :comuna %>
+          <%= f.input :comuna, label:"Comuna" %>
         </div>
         <div>
-          <%= f.label "Teléfono" %><br>
-          <%= f.input :phone %>
+          <%= f.input :phone, label:"Teléfono" %>
         </div>
         <div>
-          <%= f.label "Email" %><br>
-          <%= f.input :email %>
+          <%= f.input :email, label:"Email" %>
         </div>
         <div>
-          <%= f.label "Sitio Web" %><br>
-          <%= f.input :website %>
+          <%= f.input :website, label:"Página Web" %>
         </div>
         <%= f.label "Logo" %><br>
         <p>Sube el logo con el botón</p>
         <%= f.file_field :logo %>
         <br>
+        <div>
+          <%= f.label "Cliente pago?" %><br>
+          <%= f.input :customer, inline_label: 'Cliente paga membresía'%>
+          <br>
+        </div>
       </div>
 
       <div class="form-actions">

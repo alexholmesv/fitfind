@@ -6,6 +6,7 @@ class GymsController < InheritedResources::Base
 	@hash = Gmaps4rails.build_markers(@gyms) do |gym, marker|
  		marker.lat gym.latitude
  		marker.lng gym.longitude
+    # marker infowindow below controls pins in the map. Gym method described in rich_data below in private.
  		marker.infowindow rich_data(gym)
  	end
  end
@@ -17,7 +18,8 @@ end
 
 
   private
-
+# Must remove this from controller and add helper in later version. Code below controls HTML markers in map. 
+# Must separate markers for types of content based on customer:true or false. 
   	def rich_data(gym)
   		"""
   		<div class='well'>
@@ -34,7 +36,7 @@ end
   	end
 
     def gym_params
-      params.require(:gym).permit(:name, :description, :latitude, :longitude, :address, :comuna, :logo, :phone, :email, :website)
+      params.require(:gym).permit(:name, :description, :latitude, :longitude, :address, :comuna, :logo, :phone, :email, :website, :customer)
     end
 
     def set_gym
