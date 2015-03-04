@@ -29,7 +29,7 @@
 
 
   <div class="card-review">
-    <h2>Qué dicen los usuarios acerca de este gimnasio</h2>
+    <h2>Qué dicen los usuarios</h2>
       <% @gym.reviews.each do |review| %>
       <div class="card-comment">
         <%= image_tag review.user.image, size: '50' %>
@@ -41,7 +41,7 @@
 
     <%= form_for([@gym, @review]) do |f| %>
     <div class="field">
-      <%= f.text_area :description, class:"form-control", placeholder:"Deja un comentario acerca de este gimnasio" %>
+      <%= f.text_area :description, class:"form-control", placeholder:"Deja tu comentario" %>
     </div>
     <br>
     <div class="actions">

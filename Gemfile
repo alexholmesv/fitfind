@@ -58,8 +58,18 @@ gem 'gmaps4rails'
 gem 'bullet'
 gem 'carrierwave'
 gem 'tinymce-rails'
+gem 'ahoy_matey'
 
 
+group :development do
+ #gem 'sqlite3'
+ gem 'rspec-rails'
+ gem 'capistrano', '~> 3.1.0'
+ gem 'capistrano-bundler', '~> 1.1.2'
+ gem 'capistrano-rails', '~> 1.1.1'
+ gem 'capistrano-rvm', github: 'capistrano/rvm'
+ gem 'capistrano-ssh-doctor'
+end 
 group :development, :test do
   gem 'dotenv-rails'
 end

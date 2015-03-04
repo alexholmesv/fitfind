@@ -15,5 +15,6 @@
 //= require underscore
 //= require gmaps/google
 //= require tinymce
+//= require ahoy
 //= require_tree .
 
