@@ -46,7 +46,9 @@
               <p><strong><%= review.user.name %></strong></p>
               <p class="gymreview"><%= review.description %></p>
               <p><%= time_ago_in_words(review.created_at) %></p>
+              <% if current_user.admin? %>
               <%= link_to "", gym_review_path(@gym, review), method: :delete, class:"btn btn-warning btn-small fa fa-trash" %>
+                <% end %>
             </div>
             <% end %>
           </div>
