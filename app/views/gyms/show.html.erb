@@ -27,17 +27,35 @@
     </div>
   </div>
 
-  <div class="card-review">
+  <div class="container">
     <h2>Qué dicen los usuarios</h2>
-      <% @gym.reviews.each do |review| %>
-      <div class="card-comment">
-        <%= image_tag review.user.image, size: '50' %>
-        <p><strong><%= review.user.name %></strong></p>
-        <p class="gymreview"><%= review.description %></p>
-        <p><%= time_ago_in_words(review.created_at) %></p>
-        <%= link_to "", review, method: :delete, class:"btn btn-warning btn-small fa fa-trash" %>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Comentarios (<%= @reviews_count %>)
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            <% @gym.reviews.each do |review| %>
+            <div class="card-comment">
+              <%= image_tag review.user.image, size: '50' %>
+              <p><strong><%= review.user.name %></strong></p>
+              <p class="gymreview"><%= review.description %></p>
+              <p><%= time_ago_in_words(review.created_at) %></p>
+              <%= link_to "", gym_review_path(@gym, review), method: :delete, class:"btn btn-warning btn-small fa fa-trash" %>
+            </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-    <% end %>
+    </div>
+
+
+
 
     <%= form_for([@gym, @review]) do |f| %>
     <div class="field">
@@ -52,7 +70,7 @@
 
   </div>
 
-  <%= link_to 'Edit', edit_gym_path(@gym) %> |
-  <%= link_to 'Back', gyms_path %>
+  <%= link_to 'Edit', edit_gym_path(@gym), class:"fa fa-pencil-square-o fa-border fa-lg" %> |
+  <%= link_to 'Back', gyms_path, class:"fa fa-arrow-circle-o-left fa-lg" %>
 
 </div>

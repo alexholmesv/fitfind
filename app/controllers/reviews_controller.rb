@@ -20,10 +20,9 @@ class ReviewsController < InheritedResources::Base
 	end
 
 	def destroy
-  		@reviews = Review.find params[:post_id]
-  		@review = @gym.reviews.find params[:id]
+  		@review = Review.find params[:id]
   		@review.destroy
-  		redirect_to gym_path(@gym)
+  		redirect_to gym_path(@review.gym)
  	end
 
  	def upvote

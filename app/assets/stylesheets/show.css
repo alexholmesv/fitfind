@@ -29,8 +29,8 @@ a:active {
 }
 
 .card-gym {
-  border-radius: 30px;
-  background-color: #CCCCCC;
+  border-radius: 10px;
+  background-color: #FFCC66;
   padding: 20px;
   margin: 10px;
   width: 100%;
@@ -44,7 +44,7 @@ a:active {
 }
 
 .card-review {
-  border-radius: 30px;
+  border-radius: 10px;
   background-color: #66CCFF;
   padding: 20px;
   margin: 10px;
@@ -54,8 +54,8 @@ a:active {
 }
 
 .card-comment {
-  border-radius: 30px;
-  background-color: #999999;
+  border-radius: 10px;
+  background-color: #66CCFF;
   padding: 20px;
   margin: 10px;
   margin-right: 20px;
