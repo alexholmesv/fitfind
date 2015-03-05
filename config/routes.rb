@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :reviews
 
   resources :gyms do
-    resources :reviews, only:[:create]
+    resources :reviews
   end 
 
   get 'landings/index'

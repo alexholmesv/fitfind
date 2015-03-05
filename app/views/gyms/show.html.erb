@@ -22,11 +22,10 @@
 
     <div class="card-inside-text">
       <h4>
-        <%= @gym.description %>
+        <%= @gym.description.html_safe %>
       </h4>
     </div>
   </div>
-
 
   <div class="card-review">
     <h2>Qué dicen los usuarios</h2>
@@ -36,6 +35,7 @@
         <p><strong><%= review.user.name %></strong></p>
         <p class="gymreview"><%= review.description %></p>
         <p><%= time_ago_in_words(review.created_at) %></p>
+        <%= link_to "", review, method: :delete, class:"btn btn-warning btn-small fa fa-trash" %>
       </div>
     <% end %>
 

@@ -17,6 +17,8 @@ def show
 end
 
 
+
+
   private
 # Must remove this from controller and add helper in later version. Code below controls HTML markers in map. 
 # Must separate markers for types of content based on customer:true or false. 
