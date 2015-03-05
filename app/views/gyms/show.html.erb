@@ -1,6 +1,12 @@
 
 
 <div class="container">
+  <%= link_to '', gyms_path, class:"fa fa-arrow-circle-o-left fa-3x" %> 
+   <% if user_signed_in? and current_user.admin? %>
+  <%= link_to '', edit_gym_path(@gym), class:"fa fa-pencil-square-o fa-3x", style:"margin-left:20px" %>
+  <% end %>
+  <br>
+
   <div class="card-gym">
     <div>
       <%= image_tag @gym.logo, class:"showlogo" %>
@@ -46,7 +52,7 @@
               <p><strong><%= review.user.name %></strong></p>
               <p class="gymreview"><%= review.description %></p>
               <p><%= time_ago_in_words(review.created_at) %></p>
-              <% if current_user.admin? %>
+              <% if user_signed_in? and current_user.admin? %>
               <%= link_to "", gym_review_path(@gym, review), method: :delete, class:"btn btn-warning btn-small fa fa-trash" %>
                 <% end %>
             </div>
@@ -71,8 +77,11 @@
 
 
   </div>
+  
+ 
 
-  <%= link_to 'Edit', edit_gym_path(@gym), class:"fa fa-pencil-square-o fa-border fa-lg" %> |
-  <%= link_to 'Back', gyms_path, class:"fa fa-arrow-circle-o-left fa-lg" %>
+
+  <br>
+
 
 </div>

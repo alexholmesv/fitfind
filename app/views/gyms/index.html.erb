@@ -10,7 +10,7 @@
 </div>
 <br>
 
-
+<% if user_signed_in? and current_user.admin? %>
 <!-- Table -->
 <!-- <h1>Gimnasios y Clases de Fitness</h1> -->
 <div>
@@ -62,7 +62,7 @@
 
 <br>
 <br>
-
+<% end %>
 
 <!-- GMap4rails map script - change styling here with mapStyle variable, visit Snazzy Maps for more themes -->
 <script> 
