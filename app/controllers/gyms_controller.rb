@@ -2,7 +2,12 @@ class GymsController < InheritedResources::Base
   before_action :set_gym, only: [:show]
 
   def index
-  	@gyms = Gym.all
+  	@q = params[:q]
+    if @q and not(@q.empty?)
+      @gyms = Gym.tagged_with @q
+    else
+      @gyms = Gym.all
+    end
 	  @hash = Gmaps4rails.build_markers(@gyms) do |gym, marker|
  		marker.lat gym.latitude
  		marker.lng gym.longitude
@@ -10,9 +15,9 @@ class GymsController < InheritedResources::Base
  		# if Gym.customer? 
       marker.infowindow rich_data(gym)
     # end
+   
   end
-  end
-
+end 
 
 def show
   @review = Review.new gym:@gym, user: current_user
