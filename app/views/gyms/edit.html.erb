@@ -1,9 +1,11 @@
 
 <div class="container">
+
+<%= link_to '', @gym, class:"fa fa-arrow-circle-o-left fa-2x" %> 
+<%= link_to '', gyms_path, class:"fa fa-map-marker fa-2x", style:"margin-left:20px", tooltip:"Volver al mapa" %>
+<br>
+
 <h1>Editar Item</h1>
 <%= render 'form' %>
-
-<%= link_to 'Mostrar Item', @gym, class:"fa fa-eye fa-border fa-lg" %> |
-<%= link_to 'Volver al listado', gyms_path, class:"fa fa-arrow-circle-o-left fa-lg" %>
 
 </div>

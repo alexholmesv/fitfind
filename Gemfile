@@ -59,7 +59,8 @@ gem 'bullet'
 gem 'carrierwave'
 gem 'tinymce-rails'
 gem 'ahoy_matey'
-
+gem 'acts-as-taggable-on', '~> 3.4'
+gem 'quiet_assets'
 
 group :development do
  #gem 'sqlite3'

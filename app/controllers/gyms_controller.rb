@@ -3,11 +3,13 @@ class GymsController < InheritedResources::Base
 
   def index
   	@gyms = Gym.all
-	 @hash = Gmaps4rails.build_markers(@gyms) do |gym, marker|
+	  @hash = Gmaps4rails.build_markers(@gyms) do |gym, marker|
  		marker.lat gym.latitude
  		marker.lng gym.longitude
     # marker infowindow below controls pins in the map. Gym method described in rich_data below in private.
- 		marker.infowindow rich_data(gym)
+ 		# if Gym.customer? 
+      marker.infowindow rich_data(gym)
+    # end
   end
   end
 
@@ -38,7 +40,7 @@ end
   	end
 
     def gym_params
-      params.require(:gym).permit(:name, :description, :latitude, :longitude, :address, :comuna, :logo, :phone, :email, :website, :customer)
+      params.require(:gym).permit(:name, :description, :latitude, :longitude, :address, :comuna, :logo, :phone, :email, :website, :customer, :neighborhood_id, :tag_list)
     end
 
     def set_gym

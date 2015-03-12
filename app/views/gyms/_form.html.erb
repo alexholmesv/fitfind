@@ -23,7 +23,12 @@
           <%= f.input :address, label:"Dirección" %>
         </div>
         <div>
-          <%= f.input :comuna, label:"Comuna" %>
+          <%= f.label :"Seleccione una Comuna" %><br>
+          <%= f.select :neighborhood_id, Neighborhood.all.map{|n| [n.name, n.id]} %>
+        </div>
+         <div>
+          <%= f.label :"Escriba los tags" %><br>
+          <%= f.input :tag_list %>
         </div>
         <div>
           <%= f.input :phone, label:"Teléfono" %>
