@@ -1,11 +1,41 @@
-<head>
-  <meta charset="utf-8">
-  <title>jQuery UI Autocomplete - Default functionality</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<!--   <script src="//code.jquery.com/jquery-1.10.2.js"></script> -->
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script>
+  <%= javascript_include_tag 'tag-it'%>
+  <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+   <%= stylesheet_link_tag    'jquery.tagit', media: 'all'%> 
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $("#myTags").tagit({
+          availableTags: [
+      "Crossfit",
+      "Pesas",
+      "Musculación",
+      "Pilates",
+      "Yoga",
+      "Spinning",
+      "Personal Trainer",
+      "Máquinas",
+      "Piscina",
+      "Natación",
+      "Cancha",
+      "Running",
+      "Zumba",
+      "Baile",
+      "Gimnasia",
+      "TRX",
+      "Body Pump",
+      "Acondicionamiento",
+      "Artes Marciales",
+      "Taekwon-do",
+      "Karate",
+      "Muai Thai"
+          ]
+          });
+      });
+</script>
+
+  <!-- <script>
   $(function() {
     var availableTags = [
       "Crossfit",
@@ -29,14 +59,13 @@
       "Artes Marciales",
       "Taekwon-do",
       "Karate",
-      "Muay Thai"
+      "Muai Thai"
     ];
     $( "#tags" ).autocomplete({
       source: availableTags
     });
   });
-  </script>
-</head>
+  </script> -->
 
 <!-- GMap4rails map code -->
 <body>
@@ -49,12 +78,13 @@
 <div class="container noopacity">
 <br>
 <!-- SEARCH BOX -->
-<form class="form-group ui-widget">
- <label for="tags">Palabras clave: </label>
- <input id="tags" name="q" >
- <button type=”submit”>Buscar</button>
+<form class="form-group ui-widget" style="margin-top:80px">
+ <label for="myTags">Ingresa palabras clave para filtrar (ej.: Pesas, Yoga)</label>
+ <input id="myTags" name="q" >
+ <button class="btn btn-info"type=”submit”>Buscar/Limpiar</button>
 </form>
 <br>
+
 <!-- <div class="ui-widget">
   <label for="tags">Tags: </label>
   <input id="tags">
@@ -65,7 +95,6 @@
 </div>
 <br>
 
-<% if user_signed_in? and current_user.admin? %>
 <!-- Table -->
 <!-- <h1>Gimnasios y Clases de Fitness</h1> -->
 <div>
@@ -84,6 +113,7 @@
     </tr>
   </thead>
 
+<p>La lista a continuación se actualizará de acuerdo a tu búsqueda</p>
   <tbody>
     <% @gyms.each do |gym| %>
       <tr>
@@ -97,6 +127,8 @@
           <% end %>
         </td>
         <td>
+
+        <% if user_signed_in? and current_user.admin? %>
           <%= link_to edit_gym_path(gym) do %>
             <i class="fa fa-pencil-square-o fa-border fa-lg"></i>
           <% end %>
@@ -107,6 +139,7 @@
         <% end %>
         </td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
@@ -117,7 +150,7 @@
 
 <br>
 <br>
-<% end %>
+
 
 <!-- GMap4rails map script - change styling here with mapStyle variable, visit Snazzy Maps for more themes -->
 <script> 

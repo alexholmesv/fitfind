@@ -1,8 +1,17 @@
 
 <%= tinymce_assets %>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<!--   <script src="//code.jquery.com/jquery-1.10.2.js"></script> -->
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <%= javascript_include_tag 'tag-it'%>
+  <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+   <%= stylesheet_link_tag    'jquery.tagit', media: 'all'%> >
+
 <%= simple_form_for(@gym) do |f| %>
 <%= f.error_notification %>
+
+
 
 <form>
   <div class="form-group col-md-6">
@@ -26,9 +35,9 @@
           <%= f.label :"Seleccione una Comuna" %><br>
           <%= f.select :neighborhood_id, Neighborhood.all.map{|n| [n.name, n.id]} %>
         </div>
+        <br>
          <div>
-          <%= f.label :"Escriba los tags" %><br>
-          <%= f.input :tag_list %>
+          <%= f.input :tag_list, label: "Tags", input_html: { id:"myTags"} %>
         </div>
         <div>
           <%= f.input :phone, label:"Teléfono" %>
@@ -51,10 +60,41 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit %>
+        <%= f.button :submit, class:"btn btn-info" %>
       </div>
       <% end %>
       </div>
     </form>
 
     <%= tinymce %>
+     <script type="text/javascript">
+    $(document).ready(function() {
+        $("#myTags").tagit({
+          availableTags: 
+          [
+      "Crossfit",
+      "Pesas",
+      "Musculación",
+      "Pilates",
+      "Yoga",
+      "Spinning",
+      "Personal Trainer",
+      "Máquinas",
+      "Piscina",
+      "Natación",
+      "Cancha",
+      "Running",
+      "Zumba",
+      "Baile",
+      "Gimnasia",
+      "TRX",
+      "Body Pump",
+      "Acondicionamiento",
+      "Artes Marciales",
+      "Taekwon-do",
+      "Karate",
+      "Muai Thai"
+          ]
+          });
+      });
+</script>

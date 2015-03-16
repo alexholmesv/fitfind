@@ -4,13 +4,13 @@
     <video autoplay mute loop id="bgvid">
       <source src= <%= asset_path "videos/fitness.mp4"%> type="video/mp4">
       </video>
-      <div class="cover-container">
+      <div class="cover-container" style="margin-top:80px">
 
-        <div class="inner cover">
+        <div class="inner cover" >
          <%= image_tag 'Fitfind-Logo.png', class:"mainlogo"%>"
          <p class="lead">FitFind te ayuda a encontrar todos los servicios relacionados con fitness y vida sana dentro de tu ciudad.</p>
          <p class="lead">
-          <a><%= link_to "Llévame al Mapa", gyms_path, class: "btn btn-warning "%></a>
+          <a><%= link_to "Llévame al Mapa", gyms_path, class: "btn btn-warning btn-lg btn-block"%></a>
         </p>
       </div>
       <br>
