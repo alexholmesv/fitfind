@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  # before_action :set_locale
+
   protected
 
   #->Prelang (user_login:devise)
@@ -14,6 +16,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end
 
+  # def set_locale
+  #     I18n.locale = params[:locale] || 
+  #                   extract_locale_from_accept_language_header ||
+  #                   I18n.default_locale
+  # end 
+
+  # def default_url_options(options={})
+  #   {locale: I18n.locale}
+  # end 
 
   private
   
@@ -34,5 +45,11 @@ class ApplicationController < ActionController::Base
       redirect_to fallback_redirect, flash: {error: "You must be signed in to view this page."}
     end
   end
+
+  # def extract_locale_from_accept_language_header
+  #   locale = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+  #   locale if ['es','en'].include? locale.to_s
+  # end
+
 
 end

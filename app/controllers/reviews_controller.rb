@@ -19,6 +19,22 @@ class ReviewsController < InheritedResources::Base
 		redirect_to @gym
 	end
 
+	def like
+		@review = Review.find(params[:id])
+		current_user.likes @review
+
+		if @review.vote_registered?
+			@flag_increment = 1
+		else 
+			@flag_increment = 0
+		end
+		
+		respond_to do |f|
+			f.js
+		end
+	end
+
+
 	def destroy
   		@review = Review.find params[:id]
   		@review.destroy

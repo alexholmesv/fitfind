@@ -1,33 +1,27 @@
 Rails.application.routes.draw do
-  resources :reviews
 
   resources :gyms do
-    resources :reviews
+    resources :reviews do
+      member do
+      get "vote"
+      put "like", to: "reviews#like"
+      put "dislike", to: "reviews#downvote"
+      end
+    end
   end 
 
-  get 'landings/index'
-  get 'landings/index2'
+  # Llamar al param de idioma del url
+  # get '/:locale', to: 'landings#index2'
 
-  resources :adverts do
-  #->Prelang (voting/acts_as_votable)
-  member do
-    get "vote"
-  end
-
-  resources :reviews do
-    member do
-    get "vote"
-    put "like", to: "links#upvote"
-    put "dislike", to: "links#downvote"
-  end
-end
-
-end
+  # scope "(:locale)", locale: /es|en/ do
+  #   devise_for :admin_users, ActiveAdmin::Devise.config
+  #   ActiveAdmin.routes(self)
+  # end 
 
 
   devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords", omniauth_callbacks: "users/omniauth_callbacks"}, skip: [:sessions, :registrations]
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  # devise_for :admin_users, ActiveAdmin::Devise.config
+  # ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

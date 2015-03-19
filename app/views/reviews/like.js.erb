@@ -1,0 +1,7 @@
+if (<%= @flag_increment %> === 1)
+{	
+var like_id = "#likes-<%= @review.id %>"
+var likes = $(like_id).html()
+var likes_int = parseInt(likes)
+$(like_id).html(likes_int + 1)
+}

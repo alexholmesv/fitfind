@@ -32,7 +32,7 @@ a:active {
 
 .card-gym {
   border-radius: 10px;
-  background-color: #FFCC66;
+  background-color: white;
   padding: 20px;
   margin: 10px;
   width: 100%;
@@ -47,7 +47,7 @@ a:active {
 
 .card-review {
   border-radius: 10px;
-  background-color: #66CCFF;
+  background-color: white;
   padding: 20px;
   margin: 10px;
   width: 100%;
@@ -57,7 +57,7 @@ a:active {
 
 .card-comment {
   border-radius: 10px;
-  background-color: #66CCFF;
+  background-color: #DCE2E7;
   padding: 20px;
   margin: 10px;
   margin-right: 20px;
@@ -74,6 +74,39 @@ a:active {
 }
 
 .gymreview {
-	color: white;
+  background-color: #DCE2E7;
+	color: grey;
 	font-size: 14px
+}
+
+.latofont {
+  font-family: 'Lato', sans-serif;
+}
+
+.opensansheader {
+  font-family: 'Open Sans', 
+  light;
+  font-weight: 400;
+  sans-serif;
+  color: #0095dd;
+}
+
+.opensanstext {
+  font-family: 'Open Sans', 
+  light;
+  font-weight: 400;
+  sans-serif;
+  color: #0095dd;
+}
+
+.opensansdark {
+  font-family: 'Open Sans', 
+  light;
+  font-weight: 400;
+  sans-serif;
+  color: #484848;
+}
+
+.greyback {
+  background-color: #DCE2E7;
 }

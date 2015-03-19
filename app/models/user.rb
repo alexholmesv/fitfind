@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :gyms, through: :reviews
 
+  acts_as_voter
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     puts auth
     user = User.where(provider: auth.provider, uid: auth.uid).first
@@ -50,6 +52,7 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
+
 
 
   devise authentication_keys: [:login]

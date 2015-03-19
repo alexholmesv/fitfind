@@ -20,6 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  logout: "Log Out"
-  login: "Log In"
-  signup: "Sign Up"
+  logout: "Cerrar sesión"
+  login: "Iniciar sesión"
+  signup: "Regístrate"

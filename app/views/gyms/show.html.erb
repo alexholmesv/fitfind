@@ -1,6 +1,5 @@
-
-
-<div class="container">
+<div class="greyback">
+<div class="container opensansdark" style="padding-top:100px">
   <%= link_to '', gyms_path, class:"fa fa-arrow-circle-o-left fa-3x" %> 
    <% if user_signed_in? and current_user.admin? %>
   <%= link_to '', edit_gym_path(@gym), class:"fa fa-pencil-square-o fa-3x", style:"margin-left:20px" %>
@@ -34,7 +33,7 @@
   </div>
 
   <div class="container">
-    <h2>Qué dicen los usuarios</h2>
+    <h2 class="opensansheader">Qué dicen los usuarios</h2>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
@@ -49,9 +48,13 @@
             <% @gym.reviews.each do |review| %>
             <div class="card-comment">
               <%= image_tag review.user.image, size: '50' %>
-              <p><strong><%= review.user.name %></strong></p>
-              <p class="gymreview"><%= review.description %></p>
+              <p class="opensanstext"><strong><%= review.user.name %></strong></p>
+              <p class="gymreview opensansdark"><%= review.description %></p>
               <p><%= time_ago_in_words(review.created_at) %></p>
+              <p>
+              <a class="fa fa-thumbs-up fa-lg" href="<%= like_gym_review_path(review.gym, review) %>" data-method="PUT" data-remote="true"></a>
+              <span id="likes-<%= review.id %>"><%= review.votes_for.size %></span>
+              </p>
               <% if user_signed_in? and current_user.admin? %>
               <%= link_to "", gym_review_path(@gym, review), method: :delete, class:"btn btn-warning btn-small fa fa-trash" %>
                 <% end %>
@@ -84,4 +87,5 @@
   <br>
 
 
+</div>
 </div>
